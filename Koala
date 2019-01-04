@@ -1,0 +1,268 @@
+#include <iostream>
+#include <windows.h>
+#include <cstdlib>
+#include <time.h>
+#include <stdlib.h>
+
+using namespace std;
+
+string h(int amount)
+{
+    string output = "";
+    for (int i = 0; i < amount; i++)
+    {
+        output += " ";
+    }
+    return output;
+}
+
+string v(int amount)
+{
+    string output = "";
+    for (int i = 0; i < amount; i++)
+    {
+        output += "\n";
+    }
+    return output;
+}
+
+int main()
+{
+    srand(time(0));
+    bool gameShouldContinue = true;
+    bool shopMenu = true;
+    bool dayMenu = true;
+    int mainMenuChoice, storeChoice;
+    int cats = 0;
+    int min = 0, max = 10;
+    double money = 100, foodCost = 2.50;
+    int food = 0, basicCatToy = 0, ballOfString = 0, catTunnel = 0, catTree = 0;
+    double basicCatToyCost = 20, ballOfStringCost = 30, catTunnelCost = 40, catTreeCost = 40;
+    int shopSelection;
+    int itemSelection;
+    int daySelection;
+    int sure;
+
+    do
+    {
+        int mainColor  = rand();
+        int secondaryColor = rand();
+        int furType  = rand();
+        int weight = rand();
+        int replay;
+        string firstColor;
+        string secondColor;
+        mainColor = (mainColor % 5) + 1;
+
+        system("color e4");
+
+        switch (mainColor)
+        {
+        case (1):
+        {
+            firstColor = "|                      white                         |";
+            break;
+        }
+        case (2):
+        {
+            firstColor = "|                      orange                        |";
+            break;
+        }
+        case (3):
+        {
+            firstColor = "|                      black                         |";
+            break;
+        }
+        case (4):
+        {
+            firstColor = "|                       grey                         |";
+            break;
+        }
+        case (5):
+        {
+            firstColor = "|                      brown                         |";
+            break;
+        }
+
+        }
+
+        system ("cls");
+        cout << h(30) << "------------------------------------------------------" << endl;
+        cout << h(30) << "-----------------Cat Collector Tycoon!----------------" << endl;
+        cout << h(30) << "------------------------------------------------------" << endl;
+        cout << h(30) << "|                                                    |" << endl;
+        cout << h(30) << "|                                                    |" << endl;
+        cout << h(30) << "|                                                    |" << endl;
+        cout << h(30) << "|                                                    |" << endl;
+        cout << h(30) << "|                   your cat is                      |" << endl;
+        cout << h(30) << firstColor << endl;
+        cout << h(30) << "|                                                    |" << endl;
+        cout << h(30) << "|                                                    |" << endl;
+        cout << h(30) << "|                                                    |" << endl;
+        cout << h(30) << "|                                                    |" << endl;
+        cout << h(30) << "------------------------------------------------------" << endl;
+
+
+
+        cout << h(30) << endl << endl;
+        cout << h(30) << "0. Exit" << endl;
+        cout << h(30) << "1. Go shopping." << endl;
+        cout << h(30) << "2. Start the day." << endl;
+        cout << h(30);
+        cin >> mainMenuChoice;
+
+        if(mainMenuChoice == 0)
+        {
+            int verify;
+            cout << h(30) << "Are you sure you want to quit (1 = yes,2 = no)?";
+            cout << h(30);
+            cin >> verify;
+            if(verify == 1)
+                gameShouldContinue = false;
+        }
+        if(mainMenuChoice == 1)
+        {
+            do
+            {
+                system ("cls");
+                cout << h(30) << "------------------------------------------------------" << endl;
+                cout << h(30) << "----------------------Inventory-----------------------" << endl;
+                cout << h(30) << "------------------------------------------------------" << endl;
+                cout << h(30) << "|                     You Have :                     |" << endl;
+                cout << h(30) << "|- " << food << " Cat Food" << endl;
+                cout << h(30) << "|                                                    |" << endl;
+                cout << h(30) << "|                                                    |" << endl;
+                cout << h(30) << "|                                                    |" << endl;
+                cout << h(30) << "|                                                    |" << endl;
+                cout << h(30) << "|                                                    |" << endl;
+                cout << h(30) << "|                                                    |" << endl;
+                cout << h(30) << "------------------------------------------------------" << endl;
+                cout << h(30) << "------------------------Shop--------------------------" << endl;
+                cout << h(30) << "------------------------------------------------------" << endl;
+                cout << h(30) << "You have $" << money << "." << endl;
+                cout << h(30) << "------------------------------------------------------" << endl;
+                cout << h(30) << "|          What would you like to purchase?          |" << endl;
+                cout << h(30) << "|                                                    |" << endl;
+                cout << h(30) << "|Press 1 for Cat Food ($2.50)                        |" << endl;
+                cout << h(30) << "|Press 2 for a Basic Cat Toy ($20)                   |" << endl;
+                cout << h(30) << "|Press 3 for a Ball of String ($30)                  |" << endl;
+                cout << h(30) << "|Press 4 for a Cat Tunnel ($40)                      |" << endl;
+                cout << h(30) << "|Press 5 for a Cat Tree ($50)                        |" << endl;
+                cout << h(30) << "|                                                    |" << endl;
+                cout << h(30) << "|Press 0 to exit shop                                |" << endl;
+                cout << h(30) << "|                                                    |" << endl;
+                cout << h(30) << "|                                                    |" << endl;
+                cout << h(30) << "------------------------------------------------------" << endl;
+
+                cout << h(30);
+                cin >> shopSelection;
+
+                shopMenu = true;
+
+                if (shopSelection == 1)
+                {
+                    system ("cls");
+                    cout << v(8);
+                    cout << h(28) << "------------------------------------------------" << endl;
+                    cout << h(30) << "Food = $2.50" << endl;
+                    cout << h(28) << "------------------------------------------------" << endl;
+                    cout << h(30) << "How much food would you like to purchase?" << endl;
+                    cout << h(30);
+                    cin >> itemSelection;
+                    cout << h(30) << "Are you sure you want to purchase your food?" << endl;
+                    cout << h(30) << "Press 1 to confirm. Press 0 to cancel." << endl;
+                    cout << h(30);
+                    cin >> sure;
+                    if (sure == 1)
+                    {
+                        food = food + itemSelection;
+                        money = money - (itemSelection * foodCost);
+                        cout << h(30) << "You just bought " << itemSelection << " cat food." << endl;
+                        cout << h(30) << h(10) << "You spent $" << itemSelection * foodCost << "." << endl << endl;
+                        cout << h(30);
+                        system ("pause");
+                    }
+                    if (sure == 0)
+                    {
+                        cout << h(30) << "Your order has been cancelled." << endl;
+                        cout << h(30);
+                        system ("pause");
+                        system ("cls");
+                    }
+
+                }
+                if (shopSelection == 2)
+                {
+                    system ("cls");
+                    cout << v(8);
+                    cout << h(28) << "------------------------------------------------" << endl;
+                    cout << h(30) << "Basic Cat Toy = $20" << endl;
+                    cout << h(28) << "------------------------------------------------" << endl;
+                    cout << h(30) << "How many basic cat toys would you like to purchase?" << endl;
+                    cout << h(30);
+                    cin >> itemSelection;
+                    if (itemSelection == 1)
+                        cout << h(30) << "Are you sure you want to purchase one basic cat toy?" << endl;
+                    if (itemSelection > 1)
+                        cout << h(30) << "Are you sure you want to purchase " << itemSelection << " basic cat toys?" << endl;
+                    cout << h(30) << "Press 1 to confirm. Press 0 to cancel." << endl;
+                    cout << h(30);
+                    cin >> sure;
+                    if (sure == 1)
+                    {
+                        basicCatToy = basicCatToy + itemSelection;
+                        money = money - (itemSelection * basicCatToyCost);
+                        if (itemSelection == 1)
+                            cout << h(30) << "You just bought " << itemSelection << " basic cat toy." << endl;
+                        if (itemSelection > 1)
+                            cout << h(30) << "You just bought " << itemSelection << " basic cat toys." << endl;
+                        cout << h(30) << h(10) << "You spent $" << itemSelection * basicCatToyCost << "." << endl << endl;
+                        cout << h(30);
+                        system ("pause");
+                    }
+                    if (sure == 0)
+                    {
+                        cout << h(30) << "Your order has been cancelled." << endl;
+                        cout << h(30);
+                        system ("pause");
+                        system ("cls");
+                    }
+                }
+
+                if (shopSelection == 0)
+                    shopMenu = false;
+
+            }
+            while (shopMenu == true);
+        }
+        if(mainMenuChoice == 2)
+        {
+            do
+            {
+                system ("cls");
+                cout << v(8);
+                cout << h(30) << "Day 1" << v(2) << endl;
+                cout << h(30) << "Press 0 to exit the day" << endl;
+                cout << h(30);
+                cin >> daySelection;
+
+                if (daySelection == 0)
+                    dayMenu = false;
+
+            }
+            while  (dayMenu == true);
+        }
+
+    }
+    while (gameShouldContinue == true);
+
+
+
+
+
+
+
+
+    return 0;
+}
+
